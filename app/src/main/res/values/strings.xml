@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Movies</string>
+    <string name="details_title">Details</string>
+    <string name="search">Search</string>
+    <string name="budget">Budget: %.2f M USD</string>
+    <string name="popularity">Popularity: %.2f</string>
+    <string name="release_date">Release Date: %1$s</string>
+    <string name="ok">OK</string>
+</resources>
