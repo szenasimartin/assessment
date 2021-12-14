@@ -1,5 +1,7 @@
 # Tier Coding Exercise
 
+[![Build Status](https://app.bitrise.io/app/618c3a4bfa351ffb/status.svg?token=DgWUBKL_AqEvJ31OQ506wQ&branch=main)](https://app.bitrise.io/app/618c3a4bfa351ffb#/builds)
+
 ## Build
 1. Clone this repository
 2. Import into Android Studio
