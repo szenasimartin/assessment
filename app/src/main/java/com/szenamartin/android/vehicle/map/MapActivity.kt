@@ -7,6 +7,7 @@ import android.location.Location
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.TextView
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.google.android.gms.location.FusedLocationProviderClient
@@ -16,12 +17,17 @@ import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
+import com.google.android.material.bottomsheet.BottomSheetDialog
+import com.google.maps.android.clustering.ClusterItem
 import com.google.maps.android.clustering.ClusterManager
+import com.google.maps.android.clustering.ClusterManager.OnClusterItemClickListener
 import com.szenamartin.android.vehicle.R
 import com.szenamartin.android.vehicle.base.BaseActivity
 import com.szenamartin.android.vehicle.base.BaseViewModel
 import com.szenamartin.android.vehicle.map.clustering.MyItem
+import com.szenamartin.android.vehicle.utils.showBottomSheet
 import kotlinx.android.synthetic.main.activity_map.progressBar
+import kotlinx.android.synthetic.main.item_vehicle.model_value
 
 
 class MapActivity : BaseActivity<MapViewModel>(), OnMapReadyCallback {
@@ -62,7 +68,12 @@ class MapActivity : BaseActivity<MapViewModel>(), OnMapReadyCallback {
             googleMap.setOnCameraIdleListener(clusterManager)
             googleMap.setOnMarkerClickListener(clusterManager)
             vehicles.forEachIndexed { index, item ->
-                clusterManager.addItem(MyItem(item.latitude, item.longitude, item.model, item.state))
+                clusterManager.addItem(MyItem(item.latitude, item.longitude, item.model, item.state, item.resolution, item.vehicleId))
+            }
+            clusterManager.cluster()
+            clusterManager.setOnClusterItemClickListener { item ->
+                showBottomSheet(this, item)
+                false
             }
         })
         map = googleMap

@@ -23,7 +23,7 @@ class MapViewModel @Inject constructor(
     val movieList: LiveData<List<Item>>
         get() = _movieList
 
-    fun loadList() {
+    private fun loadList() {
         screenState.value = ScreenState.LOADING
         compositeDisposable.add(
             repository.getItems()

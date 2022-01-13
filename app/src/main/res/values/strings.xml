@@ -6,4 +6,8 @@
     <string name="popularity">Popularity: %.2f</string>
     <string name="release_date">Release Date: %1$s</string>
     <string name="ok">OK</string>
+    <string name="model">Model:</string>
+    <string name="vehicle_id">Vehicle Id:</string>
+    <string name="resolution">Resolution:</string>
+    <string name="state">State:</string>
 </resources>

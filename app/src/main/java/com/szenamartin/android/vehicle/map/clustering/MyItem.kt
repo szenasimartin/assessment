@@ -7,31 +7,26 @@ import com.google.maps.android.clustering.ClusterItem
 class MyItem(
     lat: Double,
     lng: Double,
-    title: String,
-    snippet: String
+    private val title: String,
+    private val snippet: String,
+    val resolution: String?,
+    val vehicleId: String
 ) : ClusterItem {
 
-    private val position: LatLng
-    private val title: String
-    private val snippet: String
+    private val position: LatLng = LatLng(lat, lng)
 
     override fun getPosition(): LatLng {
         return position
     }
 
-    override fun getTitle(): String? {
+    override fun getTitle(): String {
         return title
     }
 
-    override fun getSnippet(): String? {
+    override fun getSnippet(): String {
         return snippet
     }
 
-    init {
-        position = LatLng(lat, lng)
-        this.title = title
-        this.snippet = snippet
-    }
 }
 
 
